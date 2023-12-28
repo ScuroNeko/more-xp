@@ -1,0 +1,13 @@
+{
+  "minVersion": "0.7.11",
+  "compatibilityLevel": "JAVA_17",
+  "package": "ru.scuroneko.morexp.mixin",
+  "refmap": "mixins.morexp.refmap.json",
+  "mixins": [
+    "MixinEnderDragon",
+    "MixinWarden",
+    "MixinWitherBoss"
+  ],
+  "client": [],
+  "server": []
+}
