@@ -27,7 +27,7 @@ public class Config {
 
     private static final ForgeConfigSpec.IntValue WITHER_XP = BUILDER
             .comment("How many exp drop wither")
-            .defineInRange("witherXp", 2000, 0, Integer.MAX_VALUE);
+            .defineInRange("witherXp", 50, 0, Integer.MAX_VALUE);
 
     private static final ForgeConfigSpec.IntValue WARDEN_XP = BUILDER
             .comment("How many exp drop warden")

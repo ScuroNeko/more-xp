@@ -3,7 +3,6 @@ package ru.scuroneko.morexp.mixin;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
 import net.minecraft.world.entity.player.Player;
@@ -12,6 +11,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.dimension.end.EndDragonFight;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -25,14 +25,11 @@ public class MixinEnderDragon extends Mob {
         super(pEntityType, pLevel);
     }
 
-    @Shadow
-    private EndDragonFight dragonFight;
+    @Shadow private EndDragonFight dragonFight;
 
-    @Shadow
-    public int dragonDeathTime;
+    @Shadow public int dragonDeathTime;
 
-    @Shadow
-    private Player unlimitedLastHurtByPlayer = null;
+    @Shadow @Nullable private Player unlimitedLastHurtByPlayer = null;
 
     @Inject(method = "tickDeath", at = @At("HEAD"), cancellable = true)
     public void tickDeath(CallbackInfo ci) {
